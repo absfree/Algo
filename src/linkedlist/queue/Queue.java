@@ -2,8 +2,7 @@ package linkedlist.queue;
 
 import java.util.Iterator;
 
-import com.zlp.std.StdIn;
-import com.zlp.std.StdOut;
+
 
 public class Queue<Item> implements Iterable<Item> {
 	private Node first;

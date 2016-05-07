@@ -1,7 +1,9 @@
 package linkedlist;
 
-import com.zlp.std.StdIn;
-import com.zlp.std.StdOut;
+
+
+import util.StdIn;
+import util.StdOut;
 
 import java.util.Iterator;
 

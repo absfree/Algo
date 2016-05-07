@@ -461,14 +461,7 @@ public final class In {
         scanner.close();  
     }
 
-    /**
-     * Reads all integers from a file and returns them as
-     * an array of integers.
-     *
-     * @param      filename the name of the file
-     * @return     the integers in the file
-     * @deprecated Replaced by <tt>new In(filename)</tt>.{@link #readAllInts()}.
-     */
+
     public static int[] readInts(String filename) {
         return new In(filename).readAllInts();
     }

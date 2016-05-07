@@ -1,8 +1,7 @@
 package linkedlist.bag;
 
 import java.util.Iterator;
-import com.zlp.std.StdIn;
-import com.zlp.std.StdOut;
+
 
 public class Bag<Item> implements Iterable<Item> {
 	private int itemCount;

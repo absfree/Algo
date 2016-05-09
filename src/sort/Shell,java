@@ -1,0 +1,47 @@
+package sort;
+
+import util.StdOut;
+import util.StdRandom;
+
+/**
+ * Created by Administrator on 2016/5/8.
+ */
+public class Shell {
+    public static void sort(int[] a) {
+        int N = a.length;
+        int h = 1;
+        while (h < N / 3) {
+            h = 3 * h + 1; //h的取值序列为1, 4, 13, 40, ...
+        }
+        while (h >= 1) {
+            int n, i ,j, k;
+            //分割后，产生n个子序列
+            for (n = 0; n < h; n++) {
+                //分别对每个子序列进行插入排序
+                for (i = n + h; i < N; i += h) {
+                    for (j = i - h; j >= 0 && a[i] < a[j]; j -= h) {
+
+                    }
+                    int tmp = a[i];
+                    for (k = i; k > j + h; k -= h) {
+                        a[k] = a[k-h];
+                    }
+                    a[j+h] = tmp;
+                }
+            }
+            h = h / 3;
+        }
+    }
+
+    public static void main(String[] args) {
+        int N = 20;
+        int[] a = new int[N];
+        for (int i = 0; i < N; i++) {
+            a[i] = StdRandom.uniform(0, 1000);
+        }
+        Selection.sort(a);
+        for (Integer i : a) {
+            StdOut.print(i + " ");
+        }
+    }
+}

@@ -1,0 +1,53 @@
+package sort;
+
+/**
+ * Created by Administrator on 2016/5/11.
+ */
+public class MaxPQ {
+    private int[] a;//存储二叉堆结点的内部数组
+    private int N  = 0; //堆中结点个数
+
+    public MaxPQ(int maxN) {
+        a = new int[maxN+1]; //maxN为最大结点数
+    }
+
+    private void swim(int k) {
+        while (k > 1 && a[k/2] < a[k]) {
+            exchange(k, k/2 );
+            k = k / 2;
+        }
+    }
+
+    private void sink(int k) {
+        while (2 * k <= N) {
+            int j = 2 * k;
+            if (j < N && a[2*k] < a[2*k+1]) {
+                j++;
+            }
+            if (k >= j) {
+                break;
+            }
+            exchange(k, j);
+            k = j;
+        }
+    }
+
+    public void insert(int node) {
+        a[++N] = node;
+        swim(N);
+    }
+
+    public int delMax(int k) {
+        exchange(1, N);
+        int max = a[N--];
+        a[N+1] = -1;
+        sink(1);
+        return max;
+    }
+
+    public void exchange(int i, int j) {
+        int temp = a[i];
+        a[i] = a[j];
+        a[j] = temp;
+    }
+}
